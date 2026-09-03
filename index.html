@@ -1,520 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <!-- Social / SEO -->
+  <meta name="description" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models. Optical-flow-guided diffusion for temporally coherent and controllable video colorization.">
+  <meta property="og:title" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models"/>
+  <meta property="og:description" content="Optical-flow-guided diffusion for temporally coherent, reference-controllable video colorization."/>
+  <meta property="og:url" content="https://swparallel.github.io/FlowVCo/"/>
+  <meta property="og:image" content="https://swparallel.github.io/FlowVCo/static/images/flowvco_banner.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <meta name="twitter:title" content="Towards Coherent Video Colorization"/>
+  <meta name="twitter:description" content="Optical-flow-guided diffusion for temporally coherent and controllable video colorization."/>
+  <meta name="twitter:image" content="https://swparallel.github.io/FlowVCo/static/images/flowvco_banner.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
+  <meta name="keywords" content="video colorization, video consistency, optical flow, diffusion model, reference-guided colorization, ICIP 2026"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+  <!-- Google Scholar / citation metadata -->
+  <meta name="citation_title" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models"/>
+  <meta name="citation_author" content="Wen Si"/>
+  <meta name="citation_author" content="Yifan Li"/>
+  <meta name="citation_author" content="Luyao Zhang"/>
+  <meta name="citation_author" content="Shuai Yang"/>
+  <meta name="citation_author" content="Jiaying Liu"/>
+  <meta name="citation_conference_title" content="IEEE International Conference on Image Processing (ICIP)"/>
+  <meta name="citation_publication_date" content="2026"/>
+  <meta name="citation_pdf_url" content="https://swparallel.github.io/FlowVCo/static/pdfs/paper.pdf"/>
+
+  <title>FlowVCo | Towards Coherent Video Colorization</title>
+  <link rel="icon" type="image/png" href="static/images/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
+  <style>
+    .publication-title { line-height: 1.12; }
+    .hero.teaser img { width: 100%; height: auto; }
+    .paper-figure { margin: 1.25rem auto .75rem; }
+    .paper-figure img { width: 100%; height: auto; border-radius: 6px; }
+    .figure-caption { color: #555; margin-top: .75rem; }
+    .method-card {
+      height: 100%;
+      padding: 1.25rem;
+      border: 1px solid #ececec;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .method-card h3 { margin-bottom: .55rem; }
+    .metric-table { overflow-x: auto; }
+    .metric-table table { min-width: 640px; }
+    .metric-table tr.ours { font-weight: 700; background: #f4f8ff; }
+    .disabled-link {
+      opacity: .55;
+      cursor: default;
+      pointer-events: none;
+    }
+    .result-note { margin-top: 1rem; }
+    .footer { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
+
 <body>
 
+<!-- Title / authors -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Towards Coherent Video Colorization:<br>
+            When Optical Flow Meets Image Diffusion Models
+          </h1>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Wen Si,</span>
+            <span class="author-block">Yifan Li,</span>
+            <span class="author-block">Luyao Zhang,</span>
+            <span class="author-block">Shuai Yang<sup>*</sup>,</span>
+            <span class="author-block">Jiaying Liu</span>
+          </div>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Wangxuan Institute of Computer Technology, Peking University<br>
+              ICIP 2026
+            </span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span>
           </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="static/pdfs/paper.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
                 </a>
+              </span>
+
+              <span class="link-block">
+                <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/swparallel/FlowVCo" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark disabled-link" title="Add the arXiv link after release">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv (Coming Soon)</span>
+                </span>
               </span>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- Teaser video-->
+<!-- Teaser -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
+      <figure class="paper-figure">
+        <img src="static/images/teaser.png"
+             alt="Reference-guided video colorization examples with a camel sequence">
+      </figure>
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        Our model creates colorful and temporally consistent video colorizations while following the versatility of reference-frame color guidance.
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-<!-- Paper abstract -->
+<!-- Abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
+          <p>Video colorization aims to generate semantically appropriate and temporally consistent colors for grayscale videos. Existing diffusion-based approaches often face challenges in high training resources or poor cross-frame consistency due to their reliance on stochastic denoising processes. To address these limitations, this paper proposes an optical flow-guided diffusion framework that explicitly utilizes inter-frame motion to enhance temporal coherence. We explicitly inject optical flow into the network during training and introduce an optical flow-guided cross-frame attention mechanism, which leverages precise optical flow correspondences to modulate attention between frames during sampling. This ensures stable and artifact-free color propagation under complex motion patterns. Moreover, our framework incorporates reference images as additional guidance to improve controllability and color fidelity. To reduce dependence on large-scale real-world video data, we design a hybrid data synthesis pipeline that first pre-trains the model using synthesized optical flow-image pairs and then fine-tunes it on a limited set of high-quality videos generated by modern video synthesis models. Experiments demonstrate that our method achieves superior performance in terms of training efficiency, temporal consistency, color realism, and user controllability compared to existing state-of-the-art approaches.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Method</h2>
+        <p class="subtitle">
+          We explicitly model inter-frame correspondence with optical flow, while retaining the generative prior of an image diffusion model.
+        </p>
+
+        <figure class="paper-figure">
+          <img src="static/images/method.png"
+               alt="Inter-frame consistency-aware framework with optical flow and Stable Diffusion">
+          <figcaption class="figure-caption">
+            Inter-frame consistency-aware framework. The grayscale frame, reference frame, and bidirectional optical flow are fused before the Stable Diffusion U-Net.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="columns is-variable is-5">
+      <div class="column">
+        <div class="method-card">
+          <h3 class="title is-5">Optical-Flow Conditioning</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Forward and backward optical flows are injected as explicit motion conditions together with the grayscale input and reference-frame latent, with only minimal additional trainable parameters.
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="method-card">
+          <h3 class="title is-5">OFCFA</h3>
+          <p>
+            Optical Flow-guided Cross-Frame Attention uses flow correspondence to constrain cross-frame attention, improving identity preservation and reducing content drift, ghosting, and color flicker.
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="method-card">
+          <h3 class="title is-5">Hybrid Training</h3>
+          <p>
+            We first pre-train with synthesized optical-flow/image pairs and then fine-tune on a limited set of high-quality videos generated by modern video synthesis models.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
+<!-- Qualitative results carousel -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+
+        <div class="item">
+          <img src="static/images/carousel1.jpg"
+               alt="Qualitative comparison with VCGAN and L-CAD on historical film and camel examples">
+          <h2 class="subtitle has-text-centered">
+            Our method maintains stable object colors across motion and better follows the given reference than competing colorization methods.
+          </h2>
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
+
+        <div class="item">
+          <img src="static/images/carousel2.jpg"
+               alt="Additional qualitative results on goldfish and surfing videos">
+          <h2 class="subtitle has-text-centered">
+            Additional results from the supplementary material show improved semantic color assignment and cross-frame consistency on diverse scenes.
+          </h2>
         </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quantitative results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+
+    <div class="content metric-table">
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>CDC ↓</th>
+            <th>PSNR ↑</th>
+            <th>SSIM ↑</th>
+            <th>LPIPS ↓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>VCGAN</td><td>5.208</td><td>24.26</td><td>0.927</td><td>0.235</td></tr>
+          <tr><td>TCVC</td><td>3.855</td><td>25.04</td><td>0.922</td><td>0.224</td></tr>
+          <tr><td>BiSTNet</td><td>3.950</td><td>24.88</td><td>0.928</td><td>0.216</td></tr>
+          <tr><td>L-CoDe</td><td>4.410</td><td>24.97</td><td>0.861</td><td>0.219</td></tr>
+          <tr><td>L-CoDer</td><td>4.208</td><td>25.31</td><td>0.865</td><td>0.203</td></tr>
+          <tr><td>L-CoIns</td><td>3.946</td><td>23.04</td><td>0.871</td><td>0.236</td></tr>
+          <tr><td>L-CAD</td><td>4.407</td><td>22.70</td><td>0.886</td><td>0.212</td></tr>
+          <tr><td>I2VEdit</td><td>3.423</td><td>25.59</td><td>0.935</td><td>0.207</td></tr>
+          <tr class="ours"><td>Ours</td><td>3.303</td><td>26.35</td><td>0.950</td><td>0.207</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="has-text-centered result-note">
+      Evaluation on DAVIS30 at 512×512. Lower is better for CDC and LPIPS; higher is better for PSNR and SSIM.
+    </p>
+  </div>
+</section>
+
+<!-- Ablation & efficiency -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Ablation & Efficiency</h2>
+
+    <div class="columns is-variable is-6 is-vcentered">
+      <div class="column is-6">
+        <figure class="paper-figure">
+          <img src="static/images/ablation.png"
+               alt="Ablation study on optical flow-guided cross-frame attention">
+          <figcaption class="figure-caption has-text-centered">
+            OFCFA exploits explicit optical-flow correspondence to improve temporal coherence and detail preservation.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="column is-6">
+        <div class="content">
+          <p>
+            The ablation study shows steady gains as OFCFA, the reference frame, and forward/backward optical flows are introduced. The full model reaches CDC 3.303, PSNR 26.35, SSIM 0.950, and LPIPS 0.207.
+          </p>
+          <p>
+            The supplementary material reports a runtime of <strong>3.56 s/frame</strong> on DAVIS. The method is slower than CNN-based BiSTNet, but substantially faster than the compared diffusion-based L-CAD and I2VEdit methods.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
 
+<!-- Failure cases -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Failure Cases</h2>
 
+    <div class="columns is-variable is-6 is-vcentered">
+      <div class="column is-6">
+        <figure class="paper-figure">
+          <img src="static/images/failure_cases.png"
+               alt="Failure cases under rapid motion and complex semantic color assignment">
+        </figure>
+      </div>
 
+      <div class="column is-6">
+        <div class="content">
+          <p>
+            Rapid motion can make optical flow blurry and increase occlusion, weakening optical-flow guidance and OFCFA when a frame is far from the reference.
+          </p>
+          <p>
+            In complex scenes, an incomplete prompt can also lead to incorrect color assignments. The paper points to richer semantic guidance as a promising direction for future work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
-<!-- Paper poster -->
+<!-- Embedded paper -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
+      <h2 class="title has-text-centered">Paper</h2>
+      <iframe src="static/pdfs/paper.pdf" width="100%" height="650" title="Paper PDF"></iframe>
     </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</section>
 
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{si2026towards,
+  title     = {Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models},
+  author    = {Si, Wen and Li, Yifan and Zhang, Luyao and Yang, Shuai and Liu, Jiaying},
+  booktitle = {IEEE International Conference on Image Processing (ICIP)},
+  year      = {2026}
 }</code></pre>
-    </div>
+  </div>
 </section>
-<!--End BibTex citation -->
 
-
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This page was built using the
+            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">
+              Academic Project Page Template
+            </a>,
+            adopted from the
+            <a href="https://nerfies.github.io" target="_blank">Nerfies</a>
+            project page.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
