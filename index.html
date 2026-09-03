@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
 
-  <!-- Social / SEO -->
   <meta name="description" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models. Optical-flow-guided diffusion for temporally coherent and controllable video colorization.">
   <meta property="og:title" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models"/>
   <meta property="og:description" content="Optical-flow-guided diffusion for temporally coherent, reference-controllable video colorization."/>
@@ -20,7 +19,6 @@
   <meta name="keywords" content="video colorization, video consistency, optical flow, diffusion model, reference-guided colorization, ICIP 2026"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <!-- Google Scholar / citation metadata -->
   <meta name="citation_title" content="Towards Coherent Video Colorization: When Optical Flow Meets Image Diffusion Models"/>
   <meta name="citation_author" content="Wen Si"/>
   <meta name="citation_author" content="Yifan Li"/>
@@ -32,7 +30,7 @@
   <meta name="citation_pdf_url" content="https://swparallel.github.io/FlowVCo/static/pdfs/paper.pdf"/>
 
   <title>FlowVCo | Towards Coherent Video Colorization</title>
-  <link rel="icon" type="image/png" href="static/images/favicon.png"/>
+  <link rel="icon" type="image/png" href="static/images/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -46,26 +44,42 @@
     .publication-title { line-height: 1.12; }
     .hero.teaser img { width: 100%; height: auto; }
     .paper-figure { margin: 1.25rem auto .75rem; }
-    .paper-figure img { width: 100%; height: auto; border-radius: 6px; }
-    .figure-caption { color: #555; margin-top: .75rem; }
-    .method-card {
-      height: 100%;
-      padding: 1.25rem;
-      border: 1px solid #ececec;
-      border-radius: 12px;
+    .paper-figure img { width: 100%; height: auto; display: block; }
+    .figure-caption { color: #555; margin-top: .85rem; line-height: 1.5; }
+    .section-divider {
+      width: 64px; height: 3px; margin: 0 auto 2rem;
+      background: #363636; border-radius: 3px; opacity: .18;
+    }
+    .framework-image {
+      width: 100%; max-width: 1050px; margin: 0 auto;
+    }
+    .demo-wrap {
+      width: min(100%, 980px);
+      margin: 0 auto;
+    }
+    .demo-video {
+      display: block;
+      width: 100%;
+      max-height: 650px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.10);
+    }
+    .qualitative-block { margin-bottom: 3.6rem; }
+    .qualitative-block:last-child { margin-bottom: 0; }
+    .qualitative-image {
+      width: 100%;
       background: #fff;
+      border-radius: 4px;
     }
-    .method-card h3 { margin-bottom: .55rem; }
-    .metric-table { overflow-x: auto; }
-    .metric-table table { min-width: 640px; }
-    .metric-table tr.ours { font-weight: 700; background: #f4f8ff; }
     .disabled-link {
-      opacity: .55;
-      cursor: default;
-      pointer-events: none;
+      opacity: .55; cursor: default; pointer-events: none;
     }
-    .result-note { margin-top: 1rem; }
     .footer { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    @media (max-width: 768px) {
+      .demo-video { border-radius: 6px; }
+      .qualitative-block { margin-bottom: 2.5rem; }
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -78,7 +92,6 @@
 
 <body>
 
-<!-- Title / authors -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -132,7 +145,7 @@
               </span>
 
               <span class="link-block">
-                <span class="button is-normal is-rounded is-dark disabled-link" title="Add the arXiv link after release">
+                <span class="button is-normal is-rounded is-dark disabled-link">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv (Coming Soon)</span>
                 </span>
@@ -175,190 +188,70 @@
   </div>
 </section>
 
-<!-- Method -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Method</h2>
-        <p class="subtitle">
-          We explicitly model inter-frame correspondence with optical flow, while retaining the generative prior of an image diffusion model.
-        </p>
+<!-- Framework: exported directly from framework.pptx -->
+<section class="section" id="framework">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Framework</h2>
+    <div class="section-divider"></div>
+    <figure class="paper-figure framework-image">
+      <img src="static/images/framework.png"
+           alt="FlowVCo framework exported from the source PowerPoint">
+      <figcaption class="figure-caption has-text-centered">
+        Overview of the proposed inter-frame consistency-aware video colorization framework.
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
-        <figure class="paper-figure">
-          <img src="static/images/method.png"
-               alt="Inter-frame consistency-aware framework with optical flow and Stable Diffusion">
-          <figcaption class="figure-caption">
-            Inter-frame consistency-aware framework. The grayscale frame, reference frame, and bidirectional optical flow are fused before the Stable Diffusion U-Net.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <div class="columns is-variable is-5">
-      <div class="column">
-        <div class="method-card">
-          <h3 class="title is-5">Optical-Flow Conditioning</h3>
-          <p>
-            Forward and backward optical flows are injected as explicit motion conditions together with the grayscale input and reference-frame latent, with only minimal additional trainable parameters.
-          </p>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="method-card">
-          <h3 class="title is-5">OFCFA</h3>
-          <p>
-            Optical Flow-guided Cross-Frame Attention uses flow correspondence to constrain cross-frame attention, improving identity preservation and reducing content drift, ghosting, and color flicker.
-          </p>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="method-card">
-          <h3 class="title is-5">Hybrid Training</h3>
-          <p>
-            We first pre-train with synthesized optical-flow/image pairs and then fine-tune on a limited set of high-quality videos generated by modern video synthesis models.
-          </p>
-        </div>
-      </div>
+<!-- Demo -->
+<section class="section hero is-light" id="demo">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Demo</h2>
+    <div class="section-divider"></div>
+    <div class="demo-wrap">
+      <video class="demo-video" controls muted playsinline preload="metadata" poster="static/images/demo_poster.jpg">
+        <source src="static/videos/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="figure-caption has-text-centered">
+        Video demo of FlowVCo. This section is intentionally wide so you can later replace the current demo with a longer or higher-resolution showcase without changing the page layout.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- Qualitative results carousel -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-      <div id="results-carousel" class="carousel results-carousel">
+<!-- Qualitative Comparison: exported directly from the two source PPTs -->
+<section class="section" id="qualitative">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Qualitative Comparison</h2>
+    <div class="section-divider"></div>
 
-        <div class="item">
-          <img src="static/images/carousel1.jpg"
-               alt="Qualitative comparison with VCGAN and L-CAD on historical film and camel examples">
-          <h2 class="subtitle has-text-centered">
-            Our method maintains stable object colors across motion and better follows the given reference than competing colorization methods.
-          </h2>
-        </div>
-
-        <div class="item">
-          <img src="static/images/carousel2.jpg"
-               alt="Additional qualitative results on goldfish and surfing videos">
-          <h2 class="subtitle has-text-centered">
-            Additional results from the supplementary material show improved semantic color assignment and cross-frame consistency on diverse scenes.
-          </h2>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Quantitative results -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
-
-    <div class="content metric-table">
-      <table class="table is-striped is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>Method</th>
-            <th>CDC ↓</th>
-            <th>PSNR ↑</th>
-            <th>SSIM ↑</th>
-            <th>LPIPS ↓</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>VCGAN</td><td>5.208</td><td>24.26</td><td>0.927</td><td>0.235</td></tr>
-          <tr><td>TCVC</td><td>3.855</td><td>25.04</td><td>0.922</td><td>0.224</td></tr>
-          <tr><td>BiSTNet</td><td>3.950</td><td>24.88</td><td>0.928</td><td>0.216</td></tr>
-          <tr><td>L-CoDe</td><td>4.410</td><td>24.97</td><td>0.861</td><td>0.219</td></tr>
-          <tr><td>L-CoDer</td><td>4.208</td><td>25.31</td><td>0.865</td><td>0.203</td></tr>
-          <tr><td>L-CoIns</td><td>3.946</td><td>23.04</td><td>0.871</td><td>0.236</td></tr>
-          <tr><td>L-CAD</td><td>4.407</td><td>22.70</td><td>0.886</td><td>0.212</td></tr>
-          <tr><td>I2VEdit</td><td>3.423</td><td>25.59</td><td>0.935</td><td>0.207</td></tr>
-          <tr class="ours"><td>Ours</td><td>3.303</td><td>26.35</td><td>0.950</td><td>0.207</td></tr>
-        </tbody>
-      </table>
+    <div class="qualitative-block">
+      <figure class="paper-figure">
+        <img class="qualitative-image"
+             src="static/images/qualitative_main.png"
+             alt="Main qualitative comparison exported from qualitative_rect.pptx">
+        <figcaption class="figure-caption has-text-centered">
+          Main qualitative comparison. Our method produces temporally stable and reference-faithful colors across diverse motion and scene content.
+        </figcaption>
+      </figure>
     </div>
 
-    <p class="has-text-centered result-note">
-      Evaluation on DAVIS30 at 512×512. Lower is better for CDC and LPIPS; higher is better for PSNR and SSIM.
-    </p>
-  </div>
-</section>
-
-<!-- Ablation & efficiency -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Ablation & Efficiency</h2>
-
-    <div class="columns is-variable is-6 is-vcentered">
-      <div class="column is-6">
-        <figure class="paper-figure">
-          <img src="static/images/ablation.png"
-               alt="Ablation study on optical flow-guided cross-frame attention">
-          <figcaption class="figure-caption has-text-centered">
-            OFCFA exploits explicit optical-flow correspondence to improve temporal coherence and detail preservation.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="column is-6">
-        <div class="content">
-          <p>
-            The ablation study shows steady gains as OFCFA, the reference frame, and forward/backward optical flows are introduced. The full model reaches CDC 3.303, PSNR 26.35, SSIM 0.950, and LPIPS 0.207.
-          </p>
-          <p>
-            The supplementary material reports a runtime of <strong>3.56 s/frame</strong> on DAVIS. The method is slower than CNN-based BiSTNet, but substantially faster than the compared diffusion-based L-CAD and I2VEdit methods.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Failure cases -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Failure Cases</h2>
-
-    <div class="columns is-variable is-6 is-vcentered">
-      <div class="column is-6">
-        <figure class="paper-figure">
-          <img src="static/images/failure_cases.png"
-               alt="Failure cases under rapid motion and complex semantic color assignment">
-        </figure>
-      </div>
-
-      <div class="column is-6">
-        <div class="content">
-          <p>
-            Rapid motion can make optical flow blurry and increase occlusion, weakening optical-flow guidance and OFCFA when a frame is far from the reference.
-          </p>
-          <p>
-            In complex scenes, an incomplete prompt can also lead to incorrect color assignments. The paper points to richer semantic guidance as a promising direction for future work.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Embedded paper -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Paper</h2>
-      <iframe src="static/pdfs/paper.pdf" width="100%" height="650" title="Paper PDF"></iframe>
+    <div class="qualitative-block">
+      <figure class="paper-figure">
+        <img class="qualitative-image"
+             src="static/images/qualitative_supp.png"
+             alt="Supplementary qualitative comparison exported from supp_qualitative.pptx">
+        <figcaption class="figure-caption has-text-centered">
+          Additional qualitative comparison from the supplementary results.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- BibTeX -->
-<section class="section" id="BibTeX">
+<section class="section hero is-light" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{si2026towards,
