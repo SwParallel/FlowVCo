@@ -30,7 +30,7 @@
   <meta name="citation_pdf_url" content="https://swparallel.github.io/FlowVCo/static/pdfs/paper.pdf"/>
 
   <title>FlowVCo | Towards Coherent Video Colorization</title>
-  <link rel="icon" type="image/png" href="static/images/favicon.png">
+  <link rel="icon" type="image/png" href="static/images/favicon.png"/>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -42,43 +42,60 @@
 
   <style>
     .publication-title { line-height: 1.12; }
-    .hero.teaser img { width: 100%; height: auto; }
     .paper-figure { margin: 1.25rem auto .75rem; }
-    .paper-figure img { width: 100%; height: auto; display: block; }
-    .figure-caption { color: #555; margin-top: .85rem; line-height: 1.5; }
+    .paper-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .teaser-figure img, .framework-figure img {
+      border-radius: 5px;
+    }
+    .figure-caption {
+      color: #555;
+      margin-top: .9rem;
+      line-height: 1.5;
+    }
     .section-divider {
-      width: 64px; height: 3px; margin: 0 auto 2rem;
-      background: #363636; border-radius: 3px; opacity: .18;
+      width: 64px;
+      height: 3px;
+      margin: 0 auto 2rem;
+      background: #363636;
+      border-radius: 3px;
+      opacity: .16;
     }
-    .framework-image {
-      width: 100%; max-width: 1050px; margin: 0 auto;
-    }
-    .demo-wrap {
-      width: min(100%, 980px);
+    .demo-shell {
+      width: min(100%, 1040px);
       margin: 0 auto;
+      padding: 14px;
+      border-radius: 14px;
+      background: #111;
+      box-shadow: 0 12px 34px rgba(0,0,0,.10);
     }
     .demo-video {
+      width: 100%;
+      max-height: 78vh;
       display: block;
-      width: 100%;
-      max-height: 650px;
-      background: #111;
-      border-radius: 10px;
-      box-shadow: 0 8px 28px rgba(0,0,0,.10);
+      border-radius: 8px;
+      background: #000;
     }
-    .qualitative-block { margin-bottom: 3.6rem; }
-    .qualitative-block:last-child { margin-bottom: 0; }
-    .qualitative-image {
-      width: 100%;
-      background: #fff;
-      border-radius: 4px;
+    .demo-caption {
+      max-width: 840px;
+      margin: 1rem auto 0;
+      color: #555;
     }
     .disabled-link {
-      opacity: .55; cursor: default; pointer-events: none;
+      opacity: .55;
+      cursor: default;
+      pointer-events: none;
     }
-    .footer { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-    @media (max-width: 768px) {
-      .demo-video { border-radius: 6px; }
-      .qualitative-block { margin-bottom: 2.5rem; }
+    .footer {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    @media screen and (max-width: 768px) {
+      .demo-shell { padding: 7px; border-radius: 9px; }
+      .demo-video { border-radius: 5px; }
     }
   </style>
 
@@ -92,6 +109,7 @@
 
 <body>
 
+<!-- Title / authors -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -145,7 +163,7 @@
               </span>
 
               <span class="link-block">
-                <span class="button is-normal is-rounded is-dark disabled-link">
+                <span class="button is-normal is-rounded is-dark disabled-link" title="Add the arXiv link after release">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv (Coming Soon)</span>
                 </span>
@@ -159,16 +177,16 @@
   </div>
 </section>
 
-<!-- Teaser -->
+<!-- Teaser: exported directly from teaser.pptx -->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container">
     <div class="hero-body">
-      <figure class="paper-figure">
+      <figure class="paper-figure teaser-figure">
         <img src="static/images/teaser.png"
-             alt="Reference-guided video colorization examples with a camel sequence">
+             alt="FlowVCo teaser showing controllable camel video colorization with multiple color prompts">
       </figure>
       <h2 class="subtitle has-text-centered">
-        Our model creates colorful and temporally consistent video colorizations while following the versatility of reference-frame color guidance.
+        FlowVCo produces temporally coherent video colorization while supporting flexible reference- and language-guided color control.
       </h2>
     </div>
   </div>
@@ -193,65 +211,44 @@
   <div class="container">
     <h2 class="title is-3 has-text-centered">Framework</h2>
     <div class="section-divider"></div>
-    <figure class="paper-figure framework-image">
+
+    <figure class="paper-figure framework-figure">
       <img src="static/images/framework.png"
-           alt="FlowVCo framework exported from the source PowerPoint">
+           alt="FlowVCo framework with grayscale input, reference frame, optical-flow prediction and Stable Diffusion U-Net">
       <figcaption class="figure-caption has-text-centered">
-        Overview of the proposed inter-frame consistency-aware video colorization framework.
+        FlowVCo explicitly incorporates bidirectional optical flow and a colored reference frame into the colorization network,
+        providing motion-aware guidance for temporally coherent color propagation.
       </figcaption>
     </figure>
   </div>
 </section>
 
-<!-- Demo -->
+<!-- Demo only: all comparison sections removed -->
 <section class="section hero is-light" id="demo">
   <div class="container">
     <h2 class="title is-3 has-text-centered">Demo</h2>
     <div class="section-divider"></div>
-    <div class="demo-wrap">
-      <video class="demo-video" controls muted playsinline preload="metadata" poster="static/images/demo_poster.jpg">
+
+    <div class="demo-shell">
+      <video class="demo-video"
+             controls
+             muted
+             loop
+             playsinline
+             preload="metadata" poster="static/images/demo_poster.jpg">
         <source src="static/videos/demo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="figure-caption has-text-centered">
-        Video demo of FlowVCo. This section is intentionally wide so you can later replace the current demo with a longer or higher-resolution showcase without changing the page layout.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Qualitative Comparison: exported directly from the two source PPTs -->
-<section class="section" id="qualitative">
-  <div class="container">
-    <h2 class="title is-3 has-text-centered">Qualitative Comparison</h2>
-    <div class="section-divider"></div>
-
-    <div class="qualitative-block">
-      <figure class="paper-figure">
-        <img class="qualitative-image"
-             src="static/images/qualitative_main.png"
-             alt="Main qualitative comparison exported from qualitative_rect.pptx">
-        <figcaption class="figure-caption has-text-centered">
-          Main qualitative comparison. Our method produces temporally stable and reference-faithful colors across diverse motion and scene content.
-        </figcaption>
-      </figure>
     </div>
 
-    <div class="qualitative-block">
-      <figure class="paper-figure">
-        <img class="qualitative-image"
-             src="static/images/qualitative_supp.png"
-             alt="Supplementary qualitative comparison exported from supp_qualitative.pptx">
-        <figcaption class="figure-caption has-text-centered">
-          Additional qualitative comparison from the supplementary results.
-        </figcaption>
-      </figure>
-    </div>
+    <p class="subtitle has-text-centered demo-caption">
+      Demo results of FlowVCo for coherent and controllable video colorization.
+    </p>
   </div>
 </section>
 
 <!-- BibTeX -->
-<section class="section hero is-light" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{si2026towards,
